@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 id="demo1"></h1>
+    <h1 id="demo2"></h1>
+
+    <script>
+      async function getStudentNames() {
+        const promise = new Promise((resolve, reject) => {
+          const names = ['Dilanka', 'Randika', 'Sudeepa'];
+
+          if (names.length > 0) {
+            resolve(names);
+          } else {
+            reject('No students found');
+          }
+        });
+        return promise;
+      }
+      async function getStudentMarks(names) {
+        const promise = new Promise((resolve, reject) => {
+          const marks = [78, 94, 65];
+
+          if (marks.length > 0) {
+            resolve(marks);
+          } else {
+            reject('No marks found');
+          }
+        });
+        return promise;
+      }
+
+      //   CALL FUNCTION
+      getStudentNames()
+        .then((stNames) => {
+          document.getElementById('demo1').innerHTML = stNames;
+          return getStudentMarks(stNames);
+        })
+        .then((marks) => {
+          document.getElementById('demo2').innerHTML = marks;
+        })
+        .catch((error) => {
+          document.getElementById('demo1').innerHTML = error;
+        });
+    </script>
+  </body>
+</html>
