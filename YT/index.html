@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #para {
+        width: 100%;
+        height: 50px;
+        background-color: lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <p id="para">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo sint
+        omnis neque, voluptatum facere odit ipsam cupiditate eligendi aut.
+        Sapiente, voluptatum officia quas commodi eaque voluptatibus placeat
+        exercitationem deleniti nostrum?
+      </p>
+    </div>
+    <script>
+      function doSomething() {
+        console.log('Aiyo machan ai api me randu karanne');
+      }
+
+      document
+        .getElementById('para')
+        .addEventListener('mouseenter', doSomething);
+    </script>
+  </body>
+</html>
