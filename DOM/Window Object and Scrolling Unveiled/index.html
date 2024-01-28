@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .header {
+        top: 0px;
+        position: fixed;
+        width: 100%;
+        height: 50px;
+        background-color: #8d5c00;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        transition: 2s;
+        /* opacity: 0.5; */
+      }
+
+      .header > ul {
+        color: aliceblue;
+        padding: 5%;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        list-style: none;
+        gap: 25px;
+        font-family: 'Gill Sans', sans-serif;
+        font-weight: 100;
+      }
+      li:hover {
+        cursor: pointer;
+        color: rgb(44, 26, 2);
+        transition: 0.5s;
+      }
+      #Section1 {
+        /* position: absolute; */
+        width: 100%;
+        height: 100vh;
+        background-color: #ffa600;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #8d5c00;
+        padding: 50px 0;
+      }
+      #Section2 {
+        width: 100%;
+        height: 100vh;
+        background-color: #ffb121;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #8d5c00;
+        padding: 50px 0;
+      }
+      #Section3 {
+        width: 100%;
+        height: 100vh;
+        background-color: #ffbc3f;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #8d5c00;
+        padding: 50px 0;
+      }
+      #Section4 {
+        width: 100%;
+        height: 100vh;
+        background-color: #ffc559;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #8d5c00;
+        padding: 50px 0;
+      }
+      #Section5 {
+        width: 100%;
+        height: 100vh;
+        background-color: #ffce72;
+        font-size: 30px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        color: #8d5c00;
+        padding: 50px 0;
+      }
+      #btt {
+        width: 60px;
+        height: 60px;
+        background-color: whitesmoke;
+        color: #8d5c00;
+        position: fixed;
+        z-index: 20;
+        border-radius: 100%;
+        /* display: flex; */
+        display: none;
+        align-items: center;
+        justify-content: center;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 15px;
+        bottom: 20px;
+        right: 20px;
+        cursor: pointer;
+        transition: 15s;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="btt">
+      <p>top</p>
+    </div>
+    <!-- Header -->
+    <header class="header" id="header">
+      <ul>
+        <li id="section1" onclick="scrollSmoothSection('Section1')">
+          Section1
+        </li>
+        <li id="section2" onclick="scrollSmoothSection('Section2')">
+          Section2
+        </li>
+        <li id="section3" onclick="scrollSmoothSection('Section3')">
+          Section3
+        </li>
+        <li id="section4" onclick="scrollSmoothSection('Section4')">
+          Section4
+        </li>
+        <li id="section5" onclick="scrollSmoothSection('Section5')">
+          Section5
+        </li>
+      </ul>
+    </header>
+    <div class="sec">
+      <section id="Section1">Section1</section>
+      <section id="Section2">Section2</section>
+      <section id="Section3">Section3</section>
+      <section id="Section4">Section4</section>
+      <section id="Section5">Section5</section>
+    </div>
+    <!-- <button type="button" id="btn">Click here to refresh</button> -->
+    <script src="./script.js"></script>
+  </body>
+</html>
