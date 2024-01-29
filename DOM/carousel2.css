@@ -21,7 +21,6 @@
 .buttons {
   width: 70%;
   height: 50px;
-  /* background-color: aquamarine; */
   position: absolute;
   top: 280px;
   display: flex;
