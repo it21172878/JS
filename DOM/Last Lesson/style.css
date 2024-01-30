@@ -59,10 +59,10 @@ td {
   border: 1px solid aqua;
   background-color: rgb(0, 42, 70);
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   gap: 5px;
 }
-.pagination > button {
+.pagination button {
   color: aqua;
   height: 25px;
   width: 25px;
@@ -70,4 +70,12 @@ td {
   background-color: rgb(0, 64, 107);
   border-radius: 100px;
   cursor: pointer;
+}
+.pages {
+  color: aqua;
+  margin-right: 5px;
+}
+.pBtns {
+  display: flex;
+  column-gap: 5px;
 }

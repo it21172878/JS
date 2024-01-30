@@ -28,74 +28,81 @@ let students = [
 ];
 
 let filteredStudents = students;
+// Task 1-fetch data in html
+// Task 2-create for loop for fetch data in html
+// Task 3-create pagination using array slice method
+// Task 4-create a function for pagination
+// Task 5-create a next button pagination
+// Task 6-create a previous button pagination
+// Task 7-create search method
+// Task 8-create pagination buttons
 
-// create search method
 document.getElementById('search').addEventListener('keyup', () => {
-  let val = document.getElementById('search').value;
-
+  const value = document.getElementById('search').value;
+  console.log(value);
   filteredStudents = students.filter((student) => {
-    return student.name.includes(val);
+    return student.name.includes(value);
   });
-  pagePagination(currentPage);
+  console.log(filteredStudents);
+  paginated(pageNumber);
 });
-
-let noOfPages = Math.ceil(students.length / 8);
-let currentPage = 1;
-
-for (let i = 1; i <= noOfPages; i++) {
-  let btns = document.createElement('button');
-  btns.innerText = i;
-  document.getElementById('pBtns').appendChild(btns);
-  btns.addEventListener('click', () => {
-    currentPage = i;
-    pagePagination(currentPage);
-  });
-}
-
 document.getElementById('next').addEventListener('click', () => {
-  if (currentPage < noOfPages) {
-    currentPage++;
-    pagePagination(currentPage);
+  if (noOfPage > pageNumber) {
+    pageNumber++;
+    paginated(pageNumber);
   }
 });
 document.getElementById('prev').addEventListener('click', () => {
-  if (currentPage > 1) {
-    currentPage--;
-    pagePagination(currentPage);
+  if (pageNumber > 1) {
+    pageNumber--;
+    paginated(pageNumber);
   }
 });
 
-// initial call to function
-pagePagination(currentPage);
+let pageNumber = 1; // current page number
+let noOfPage = students.length / 8; // total pages
+noOfPage = Math.ceil(noOfPage); // round up to nearest whole number
+console.log('Total Pages : ', noOfPage);
 
-function pagePagination(pageNumber) {
-  let startIndex = (pageNumber - 1) * 8; // Showing 8 items per page.
+for (let i = 1; i <= noOfPage; i++) {
+  let numButtons = document.createElement('button');
+  numButtons.innerText = i;
+  document.getElementById('numBtns').appendChild(numButtons);
+  numButtons.addEventListener('click', () => {
+    pageNumber = i;
+    paginated(pageNumber);
+  });
+}
+
+paginated(pageNumber);
+
+function paginated(pgNumber) {
+  let startIndex = (pgNumber - 1) * 8;
   let endIndex = startIndex + 8;
-  let paginated = filteredStudents.slice(startIndex, endIndex);
-
-  document.getElementById('pages').innerHTML = currentPage + ' of ' + noOfPages;
+  let pagination = filteredStudents.slice(startIndex, endIndex);
 
   document.getElementById('tbody').innerHTML = '';
+  document.getElementById('pages').innerHTML = pageNumber + ' of ' + noOfPage;
 
-  for (let i = 0; i < paginated.length; i++) {
+  for (let i = 0; i < pagination.length; i++) {
     let row = document.createElement('tr');
+
     let noTd = document.createElement('td');
-    noTd.innerText = startIndex + i + 1;
+    noTd.innerHTML = startIndex + i + 1;
 
     let nameTd = document.createElement('td');
-    nameTd.innerText = paginated[i].name;
+    nameTd.innerHTML = pagination[i].name;
 
     let cityTd = document.createElement('td');
-    cityTd.innerText = paginated[i].city;
+    cityTd.innerHTML = pagination[i].city;
 
     let ageTd = document.createElement('td');
-    ageTd.innerText = paginated[i].age;
+    ageTd.innerHTML = pagination[i].age;
 
-    let totTd = document.createElement('td');
-    totTd.innerText = paginated[i].totalMarks;
+    let totalMarksTd = document.createElement('td');
+    totalMarksTd.innerHTML = pagination[i].totalMarks;
 
-    row.append(noTd, nameTd, cityTd, ageTd, totTd);
-
+    row.append(noTd, nameTd, cityTd, ageTd, totalMarksTd);
     document.getElementById('tbody').appendChild(row);
   }
 }
